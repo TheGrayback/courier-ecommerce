@@ -1,0 +1,50 @@
+@reference 'tailwindcss';
+
+.productCard {
+    @apply flex flex-col overflow-hidden rounded-xl bg-neutral-900 shadow-md border border-neutral-800;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.productCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 255, 157, 0.15);
+    border-color: #00ff9d;
+}
+
+.productImage {
+    @apply h-65 w-full object-cover;
+    border-bottom: 1px solid #222;
+}
+
+.productName {
+    @apply mt-3 px-4 text-lg font-semibold tracking-wide text-gray-100;
+}
+
+.productPrice {
+    @apply mt-1 px-4 text-gray-400;
+}
+
+.cardFooter {
+    @apply my-4 flex flex-row items-center justify-between px-4;
+}
+
+.addToCartButton {
+    @apply mr-2 flex-1 rounded px-4 py-2 font-semibold transition-colors;
+    background-color: #00ff9d;
+    color: #000;
+}
+
+.addToCartButton:hover {
+    background-color: #00d67f;
+}
+
+.addToFavBtn {
+    @apply flex h-10 w-10 items-center justify-center rounded-full transition-colors;
+    background-color: #1a1a1a;
+    color: #666;
+}
+
+.addToFavBtn:hover {
+    background-color: #00ff9d;
+    color: #000;
+}

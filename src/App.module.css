@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+
+.app {
+    @apply bg-black min-h-screen text-gray-100;
+    font-family: 'Orbitron', sans-serif; /* можно подключить Google Fonts */
+}
+
+.main {
+    @apply p-6;
+}

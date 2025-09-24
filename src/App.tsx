@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import './App.module.css'
+import ProductsGrid from './components/ProductsGrid/ProductsGrid.js';
+import styles from './App.module.css';
+import Navbar from './components/Navbar/Navbar.js';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      
-    </>
-  )
+    return (
+        <div className={styles.app}>
+            <Navbar />
+            <main className={styles.main}>
+                <ProductsGrid />
+            </main>
+        </div>
+    );
 }
 
-export default App
+export default App;

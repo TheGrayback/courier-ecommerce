@@ -1,0 +1,37 @@
+@reference 'tailwindcss';
+
+.navbar {
+    @apply flex items-center justify-between px-8 py-4;
+    background: linear-gradient(90deg, #0a0a0a, #111);
+    border-bottom: 1px solid #222;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    @apply text-xl font-bold tracking-widest uppercase;
+    color: #e5e5e5;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.logo span {
+    color: #00ff9d; /* неоновый акцент */
+}
+
+.navLinks {
+    @apply hidden gap-8 md:flex;
+}
+
+.navLinks li a {
+    @apply text-gray-400 transition-colors hover:text-white;
+    letter-spacing: 1px;
+}
+
+.cartBtn {
+    @apply rounded p-2 font-semibold transition-colors;
+    background-color: #00ff9d;
+    color: #000;
+}
+
+.cartBtn:hover {
+    background-color: #00d67f;
+}
