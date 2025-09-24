@@ -1,33 +1,27 @@
 import styles from './Navbar.module.css';
-import { useCart } from '../../contexts/CartContext.js';
 import { ShoppingCart } from 'lucide-react';
-
-function showTotalSum(
-    items: Array<{ price: number; quantity: number }>
-): number {
-    return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-}
+import { Link } from 'react-router-dom';
 
 function Navbar() {
-    const { state } = useCart();
-
     return (
         <nav className={styles.navbar}>
-            <div className={styles.logo}>Courier_</div>
+            <Link to='/' className={styles.logo}>
+                Courier_
+            </Link>
             <ul className={styles.navLinks}>
-                <li>
+                <Link to='/'>
                     <a href='#'>Shop</a>
-                </li>
-                <li>
+                </Link>
+                <Link to='/'>
                     <a href='#'>Lookbook</a>
-                </li>
-                <li>
+                </Link>
+                <Link to='/'>
                     <a href='#'>About</a>
-                </li>
+                </Link>
             </ul>
-            <button className={styles.cartBtn}>
+            <Link to='/cart' className={styles.cartBtn}>
                 <ShoppingCart />
-            </button>
+            </Link>
         </nav>
     );
 }
