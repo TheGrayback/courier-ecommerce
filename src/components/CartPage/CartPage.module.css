@@ -1,0 +1,61 @@
+@reference 'tailwindcss';
+
+.cartPage {
+    @apply min-h-screen bg-gray-900 p-6 text-white;
+}
+
+.title {
+    @apply mb-8 text-3xl font-bold;
+}
+
+.emptyCart {
+    @apply flex h-64 flex-col items-center justify-center text-center;
+}
+
+.emptyText {
+    @apply text-lg ;
+}
+
+.backButton {
+    @apply rounded bg-[#00ff9d] px-4 py-2 font-semibold text-black transition-colors hover:bg-[#00d67f];
+}
+
+.cartContent {
+    @apply flex flex-col gap-6;
+}
+
+.iconWrapper {
+    @apply mb-4 flex flex-row items-center gap-2 text-gray-400;
+}
+
+.itemList {
+    @apply space-y-4;
+}
+
+.itemCard {
+    @apply flex items-center justify-between border-b border-gray-700 pb-3;
+}
+
+.itemName {
+    @apply text-lg font-semibold;
+}
+
+.itemDetails {
+    @apply text-gray-400;
+}
+
+.itemTotal {
+    @apply font-bold;
+}
+
+.summary {
+    @apply mt-6 flex flex-col items-end gap-3;
+}
+
+.total {
+    @apply text-xl font-bold;
+}
+
+.checkoutBtn {
+    @apply rounded bg-green-500 px-6 py-2 font-semibold text-white transition-colors hover:bg-green-600;
+}
