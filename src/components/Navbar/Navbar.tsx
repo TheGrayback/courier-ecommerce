@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingBasket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
@@ -20,7 +20,7 @@ function Navbar() {
                 </Link>
             </ul>
             <Link to='/cart' className={styles.cartBtn}>
-                <ShoppingCart />
+                <ShoppingBasket />
             </Link>
         </nav>
     );

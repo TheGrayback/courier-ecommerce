@@ -21,11 +21,11 @@
 }
 
 .cartCard {
-    @apply border border-gray-800 bg-gray-900 text-gray-100;
+    @apply border border-gray-800 bg-gray-900 text-gray-100 gap-4;
 }
 
 .cartCardHeader {
-    @apply mb-2;
+    @apply flex items-center justify-end;
 }
 
 .cartCardHeaderTitle {
@@ -41,13 +41,21 @@
 }
 
 .cartCardFooter {
-    @apply flex flex-col items-center justify-between sm:flex-row;
+    @apply flex flex-col items-center justify-end sm:flex-row gap-4;
 }
 
 .cartTotal {
-    @apply text-xl font-bold;
+    @apply text-2xl font-bold;
 }
 
 .cartButton {
-    @apply mt-4 w-full cursor-pointer rounded bg-[#00ff9d] p-2 font-semibold text-black transition-colors hover:bg-[#00d67f] sm:m-0 sm:w-auto;
+    @apply mt-4 w-full text-lg cursor-pointer rounded bg-[#00ff9d] p-5 font-semibold text-black transition-colors hover:bg-[#00d67f] sm:m-0 sm:w-auto;
+}
+
+.cartItemsList {
+    @apply flex flex-col gap-4;
+}
+
+.cartClearIcon {
+    @apply h-7 w-7 text-[#ff0f0f];
 }

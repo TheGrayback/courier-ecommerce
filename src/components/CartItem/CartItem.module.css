@@ -1,7 +1,7 @@
 @reference 'tailwindcss';
 
 .item {
-    @apply flex items-center justify-between;
+    @apply flex items-center justify-between text-xl;
 }
 
 .itemName {
@@ -9,9 +9,17 @@
 }
 
 .totalItemPrice {
-    @apply text-sm text-gray-400;
+    @apply text-base text-gray-400;
 }
 
 .totalCartPrice {
-    @apply text-lg font-semibold;
+    @apply text-xl font-semibold;
+}
+
+.itemImage {
+    @apply h-20 w-20 rounded object-cover;
+}
+
+.itemDetails {
+    @apply flex flex-row gap-4 items-center;
 }
