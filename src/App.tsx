@@ -1,8 +1,8 @@
-import ProductsGrid from './components/ProductsGrid/ProductsGrid.js';
+import ProductsGrid from './components/ProductsGrid/ProductsGrid';
 import styles from './App.module.css';
-import Navbar from './components/Navbar/Navbar.js';
+import Navbar from './components/Navbar/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import CartPage from './components/CartPage/CartPage.js';
+import CartPage from './components/CartPage/CartPage';
 
 function App() {
     return (

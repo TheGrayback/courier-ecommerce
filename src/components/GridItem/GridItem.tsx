@@ -1,4 +1,4 @@
-import { useCart } from '../../contexts/CartContext.js';
+import { useCart } from '../../contexts/CartContext';
 import { Star } from 'lucide-react';
 import styles from './GridItem.module.css';
 
