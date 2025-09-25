@@ -1,61 +1,53 @@
 @reference 'tailwindcss';
 
+.cartEmpty {
+    @apply flex min-h-screen flex-col items-center justify-center bg-gray-950 text-gray-300;
+}
+
+.cartEmptyIcon {
+    @apply mb-4 h-16 w-16 text-gray-500;
+}
+
+.cartEmptyText {
+    @apply mb-4 text-lg;
+}
+
 .cartPage {
-    @apply min-h-screen bg-gray-900 p-6 text-white;
+    @apply min-h-screen bg-gray-950 p-6 text-gray-100;
 }
 
-.title {
-    @apply mb-8 text-3xl font-bold;
+.cartTitle {
+    @apply mb-6 text-3xl font-bold tracking-wide uppercase;
 }
 
-.emptyCart {
-    @apply flex h-64 flex-col items-center justify-center text-center;
+.cartCard {
+    @apply border border-gray-800 bg-gray-900 text-gray-100;
 }
 
-.emptyText {
-    @apply text-lg ;
+.cartCardHeader {
+    @apply mb-2;
 }
 
-.backButton {
-    @apply rounded bg-[#00ff9d] px-4 py-2 font-semibold text-black transition-colors hover:bg-[#00d67f];
+.cartCardHeaderTitle {
+    @apply text-xl font-semibold;
 }
 
-.cartContent {
-    @apply flex flex-col gap-6;
-}
-
-.iconWrapper {
-    @apply mb-4 flex flex-row items-center gap-2 text-gray-400;
-}
-
-.itemList {
+.cartCardContent {
     @apply space-y-4;
 }
 
-.itemCard {
-    @apply flex items-center justify-between border-b border-gray-700 pb-3;
+.cartSeparator {
+    @apply bg-gray-800;
 }
 
-.itemName {
-    @apply text-lg font-semibold;
+.cartCardFooter {
+    @apply flex flex-col items-center justify-between sm:flex-row;
 }
 
-.itemDetails {
-    @apply text-gray-400;
-}
-
-.itemTotal {
-    @apply font-bold;
-}
-
-.summary {
-    @apply mt-6 flex flex-col items-end gap-3;
-}
-
-.total {
+.cartTotal {
     @apply text-xl font-bold;
 }
 
-.checkoutBtn {
-    @apply rounded bg-green-500 px-6 py-2 font-semibold text-white transition-colors hover:bg-green-600;
+.cartButton {
+    @apply mt-4 w-full cursor-pointer rounded bg-[#00ff9d] p-2 font-semibold text-black transition-colors hover:bg-[#00d67f] sm:m-0 sm:w-auto;
 }

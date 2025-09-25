@@ -1,0 +1,17 @@
+@reference 'tailwindcss';
+
+.item {
+    @apply flex items-center justify-between;
+}
+
+.itemName {
+    @apply font-medium;
+}
+
+.totalItemPrice {
+    @apply text-sm text-gray-400;
+}
+
+.totalCartPrice {
+    @apply text-lg font-semibold;
+}

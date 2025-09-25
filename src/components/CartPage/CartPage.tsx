@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../../contexts/CartContext.js';
-import styles from './CartPage.module.css';
+import { useCart } from '../../contexts/CartContext';
 import { ShoppingCart } from 'lucide-react';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import CartItem from '../CartItem/CartItem';
+import styles from './CartPage.module.css';
 
-function showTotalSum(
-    items: Array<{ price: number; quantity: number }>
-): number {
+function showTotalSum(items: Array<{ price: number; quantity: number }>): number {
     return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 }
 
@@ -13,48 +15,44 @@ function CartPage() {
     const { state } = useCart();
     const total = showTotalSum(state.items);
 
+    if (state.items.length === 0) {
+        return (
+            <div className={styles.cartEmpty}>
+                <ShoppingCart className={styles.cartEmptyIcon} />
+                <p className={styles.cartEmptyText}>Your cart is empty</p>
+                <Button asChild variant="secondary">
+                    <Link to="/">Back to shop</Link>
+                </Button>
+            </div>
+        );
+    }
+
     return (
         <div className={styles.cartPage}>
-            <h1 className={styles.title}>Your Cart</h1>
+            <h1 className={styles.cartTitle}>Your Cart</h1>
 
-            {state.items.length === 0 ? (
-                <div className={styles.emptyCart}>
-                    <span className={styles.iconWrapper}>
-                        <p className={styles.emptyText}>Your cart is empty</p>
-                        <ShoppingCart />
-                    </span>
-                    <Link to='/' className={styles.backButton}>
-                        Back to shop
-                    </Link>
-                </div>
-            ) : (
-                <div className={styles.cartContent}>
-                    <ul className={styles.itemList}>
+            <Card className={styles.cartCard}>
+                <CardHeader className={styles.cartCardHeader}>
+                    <h2 className={styles.cartCardHeaderTitle}>Items</h2>
+                </CardHeader>
+
+                <CardContent className={styles.cartCardContent}>
+                    <ul>
                         {state.items.map((item) => (
-                            <li key={item.id} className={styles.itemCard}>
-                                <div>
-                                    <h2 className={styles.itemName}>
-                                        {item.name}
-                                    </h2>
-                                    <p className={styles.itemDetails}>
-                                        {item.quantity} × ${item.price}
-                                    </p>
-                                </div>
-                                <span className={styles.itemTotal}>
-                                    ${(item.price * item.quantity).toFixed(2)}
-                                </span>
-                            </li>
+                            <CartItem key={item.id} item={item} />
                         ))}
                     </ul>
+                </CardContent>
 
-                    <div className={styles.summary}>
-                        <p className={styles.total}>
-                            Total: ${total.toFixed(2)}
-                        </p>
-                        <button className={styles.checkoutBtn}>Checkout</button>
-                    </div>
-                </div>
-            )}
+                <Separator className={styles.cartSeparator} />
+
+                <CardFooter className={styles.cartCardFooter}>
+                    <p className={styles.cartTotal}>Total: ${total.toFixed(2)}</p>
+                    <Button className={styles.cartButton}>
+                        Checkout
+                    </Button>
+                </CardFooter>
+            </Card>
         </div>
     );
 }
