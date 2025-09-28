@@ -1,25 +1,61 @@
 @reference 'tailwindcss';
 
 .item {
-    @apply flex items-center justify-between text-xl;
+    @apply flex flex-col items-center justify-between gap-4 p-4 md:flex-row md:gap-0 border-b border-white/20
+}
+
+.leftContainer {
+    @apply flex md:items-center items-start gap-4 md:w-fit w-full;
+}
+
+.itemText {
+    @apply flex flex-col;
 }
 
 .itemName {
-    @apply font-medium;
+    @apply text-lg font-medium wrap-anywhere;
 }
 
 .totalItemPrice {
-    @apply text-base text-gray-400;
+    @apply text-sm text-gray-500;
 }
 
-.totalCartPrice {
-    @apply text-xl font-semibold;
+.centralContainer {
+    @apply flex items-center gap-2;
+}
+
+.quantityInput {
+    @apply w-16 rounded-md border border-white/30 px-2 py-1 text-center focus:ring-1 focus:ring-indigo-400 focus:outline-none;
+}
+
+.rightContainer {
+    @apply mt-2 flex items-center gap-4 md:mt-0;
 }
 
 .itemImage {
-    @apply h-20 w-20 rounded object-cover;
+    @apply h-24 w-24 shrink-0 rounded-lg object-cover;
 }
 
-.itemDetails {
-    @apply flex flex-row gap-4 items-center;
+.totalCartPrice {
+    @apply min-w-[80px] text-right text-lg font-semibold;
+}
+
+.removeItemBtn {
+    @apply rounded p-2 text-red-500 hover:bg-red-300/30;
+}
+
+.removeItemIcon {
+    @apply h-6 w-6;
+}
+
+.quantityIcons {
+    @apply h-6 w-6;
+}
+
+.quantityBtns {
+    @apply flex hover:bg-gray-500;
+}
+
+.utilityWrapper {
+    @apply flex w-full flex-row justify-between md:w-fit;
 }

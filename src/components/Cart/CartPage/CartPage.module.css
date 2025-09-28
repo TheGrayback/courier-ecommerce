@@ -53,9 +53,9 @@
 }
 
 .cartItemsList {
-    @apply flex flex-col gap-4;
+    @apply flex flex-col;
 }
 
 .cartClearIcon {
-    @apply h-7 w-7 text-[#ff0f0f];
+    @apply h-7 w-7 text-[#ff0f0f] hover:bg-red-300/10;
 }
