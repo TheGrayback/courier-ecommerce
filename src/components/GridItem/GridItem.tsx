@@ -1,16 +1,10 @@
-import { useCart } from '../../contexts/CartContext';
 import { Star } from 'lucide-react';
 import styles from './GridItem.module.css';
-
-type Product = {
-    id: number;
-    name: string;
-    price: number;
-    imageUrl: string;
-};
+import { useCartActions } from '@/hooks/useCartActions';
+import type { Product } from '@/types/itemGrid.types';
 
 function GridItem({ product }: { product: Product }) {
-    const { dispatch } = useCart();
+    const { addItem } = useCartActions();
 
     return (
         <div key={product.id} className={styles.productCard}>
@@ -24,16 +18,7 @@ function GridItem({ product }: { product: Product }) {
             <div className={styles.cardFooter}>
                 <button
                     className={styles.addToCartButton}
-                    onClick={() =>
-                        dispatch({
-                            type: 'ADD_ITEM',
-                            payload: {
-                                ...product,
-                                id: product.id,
-                                quantity: 1,
-                            },
-                        })
-                    }
+                    onClick={() => addItem({ ...product, quantity: 1 })}
                 >
                     Add to Cart
                 </button>

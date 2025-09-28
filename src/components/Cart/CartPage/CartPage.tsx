@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import CartItem from '../CartItem/CartItem';
 import styles from './CartPage.module.css';
+import { useCartActions } from '@/hooks/useCartActions';
 
 function showTotalSum(
     items: Array<{ price: number; quantity: number }>
@@ -19,9 +20,9 @@ function showTotalSum(
 }
 
 function CartPage() {
-    const { state, dispatch } = useCart();
+    const { state } = useCart();
     const total = showTotalSum(state.items);
-
+    const { clearCart } = useCartActions();
     if (state.items.length === 0) {
         return (
             <div className={styles.cartEmpty}>
@@ -40,11 +41,8 @@ function CartPage() {
 
             <Card className={styles.cartCard}>
                 <CardHeader className={styles.cartCardHeader}>
-                    <Button
-                        size={'icon'}
-                        onClick={() => dispatch({ type: 'CLEAR_CART' })}
-                    >
-                        <Trash2 className={styles.cartClearIcon}/>
+                    <Button size={'icon'} onClick={clearCart}>
+                        <Trash2 className={styles.cartClearIcon} />
                     </Button>
                 </CardHeader>
 
@@ -56,7 +54,6 @@ function CartPage() {
                     </ul>
                 </CardContent>
 
-                <Separator className={styles.cartSeparator} />
 
                 <CardFooter className={styles.cartCardFooter}>
                     <p className={styles.cartTotal}>${total.toFixed(2)}</p>
