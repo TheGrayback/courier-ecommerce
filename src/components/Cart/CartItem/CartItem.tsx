@@ -1,3 +1,4 @@
+import { Button } from '../../ui/button';
 import styles from './CartItem.module.css';
 
 function CartItem({
@@ -25,6 +26,11 @@ function CartItem({
                         {item.quantity} × ${item.price}
                     </p>
                 </div>
+            </div>
+            <div>
+                <Button variant={'outline'}>-</Button>
+                <span>{item.quantity}</span>
+                <Button variant={'outline'}>+</Button>
             </div>
 
             <span className={styles.totalCartPrice}>

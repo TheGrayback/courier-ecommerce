@@ -2,7 +2,7 @@ import ProductsGrid from './components/ProductsGrid/ProductsGrid';
 import styles from './App.module.css';
 import Navbar from './components/Navbar/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import CartPage from './components/CartPage/CartPage';
+import CartPage from './components/Cart/CartPage/CartPage';
 
 function App() {
     return (
