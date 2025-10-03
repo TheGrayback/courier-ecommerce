@@ -25,15 +25,14 @@ function CartItem({
                     alt={item.name}
                     className={styles.itemImage}
                 />
-                <div className={styles.itemText}>
-                    <p className={styles.itemName}>{item.name}</p>
-                </div>
+                <p className={styles.itemName}>{item.name}</p>
             </div>
             <div className={styles.utilityWrapper}>
                 <div className={styles.centralContainer}>
                     <Button
                         onClick={() => updateQuantity(item.id, -1)}
                         className={styles.quantityBtns}
+                        size={'icon'}
                     >
                         <Minus className={styles.quantityIcons} />
                     </Button>
@@ -55,6 +54,7 @@ function CartItem({
                     <Button
                         onClick={() => updateQuantity(item.id, +1)}
                         className={styles.quantityBtns}
+                        size={'icon'}
                     >
                         <Plus className={styles.quantityIcons} />
                     </Button>

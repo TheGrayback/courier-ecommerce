@@ -1,19 +1,15 @@
 @reference 'tailwindcss';
 
 .item {
-    @apply flex flex-col items-center justify-between gap-4 p-4 md:flex-row md:gap-0 border-b border-white/20
+    @apply flex flex-col items-center justify-between gap-4 border-b border-white/20 p-4 md:flex-row md:gap-0;
 }
 
 .leftContainer {
-    @apply flex md:items-center items-start gap-4 md:w-fit w-full;
-}
-
-.itemText {
-    @apply flex flex-col;
+    @apply flex w-full items-start gap-4 md:w-fit md:items-center;
 }
 
 .itemName {
-    @apply text-lg font-medium wrap-anywhere;
+    @apply line-clamp-3 text-lg leading-snug font-medium wrap-anywhere md:max-w-[80%];
 }
 
 .totalItemPrice {
@@ -25,7 +21,7 @@
 }
 
 .quantityInput {
-    @apply w-16 rounded-md border border-white/30 px-2 py-1 text-center focus:ring-1 focus:ring-indigo-400 focus:outline-none;
+    @apply w-10 rounded-md border border-white/30 px-2 py-1 text-center focus:ring-1 focus:ring-indigo-400 focus:outline-none;
 }
 
 .rightContainer {
@@ -33,7 +29,7 @@
 }
 
 .itemImage {
-    @apply h-24 w-24 shrink-0 rounded-lg object-cover;
+    @apply size-15 shrink-0 rounded-lg object-cover md:size-24;
 }
 
 .totalCartPrice {
@@ -41,7 +37,7 @@
 }
 
 .removeItemBtn {
-    @apply rounded p-2 text-red-500 hover:bg-red-300/30;
+    @apply rounded p-2 text-red-500 hover:bg-red-300/30 md:relative;
 }
 
 .removeItemIcon {
@@ -49,7 +45,7 @@
 }
 
 .quantityIcons {
-    @apply h-6 w-6;
+    @apply size-6;
 }
 
 .quantityBtns {
