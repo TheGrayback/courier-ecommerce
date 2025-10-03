@@ -1,0 +1,92 @@
+@reference 'tailwindcss';
+.container {
+    @apply mx-auto p-6;
+}
+
+.gridMain {
+    @apply grid grid-cols-1 gap-8 md:grid-cols-2;
+}
+
+.mainImageWrapper {
+    @apply aspect-square overflow-hidden rounded-lg bg-neutral-800;
+}
+
+.mainImage {
+    @apply h-full w-full object-cover;
+}
+
+.previewWrapper {
+    @apply flex gap-2;
+}
+
+.previewItem {
+    @apply h-20 w-20 overflow-hidden rounded-md border border-neutral-700;
+}
+
+.productInfo {
+    @apply flex flex-col gap-6;
+}
+
+.productName {
+    @apply text-xl font-bold wrap-anywhere;
+}
+
+.productPrice {
+    @apply text-2xl font-semibold text-green-400;
+}
+
+.optionGroup {
+    @apply space-y-3;
+}
+
+.optionLabel {
+    @apply mb-1 text-sm text-gray-400;
+}
+
+.colorsWrapper {
+    @apply mb-2 flex gap-2;
+}
+
+.colorItem {
+    @apply h-8 w-8 cursor-pointer rounded-full border-2 border-neutral-700;
+}
+
+.sizesWrapper {
+    @apply flex gap-2;
+}
+
+.sizeButton {
+    @apply cursor-pointer rounded border px-3 py-1;
+}
+
+.cartControls {
+    @apply flex items-center gap-4;
+}
+
+.quantityInput {
+    @apply w-16 rounded border px-2 py-1 text-center;
+}
+
+.shortDescription {
+    @apply text-gray-300;
+}
+
+.fullDescription {
+    @apply mt-6 leading-relaxed text-gray-300;
+}
+
+.relatedSection {
+    @apply mt-16;
+}
+
+.relatedGrid {
+    @apply grid grid-cols-2 gap-6 md:grid-cols-4;
+}
+
+.relatedItem {
+    @apply aspect-square w-full overflow-hidden rounded bg-neutral-800;
+}
+
+.relatedImage {
+    @apply h-full w-full object-cover;
+}
