@@ -9,15 +9,9 @@ function Navbar() {
                 Courier_
             </Link>
             <ul className={styles.navLinks}>
-                <Link to='/'>
-                    <a href='#'>Shop</a>
-                </Link>
-                <Link to='/'>
-                    <a href='#'>Lookbook</a>
-                </Link>
-                <Link to='/'>
-                    <a href='#'>About</a>
-                </Link>
+                <Link to='/'>Shop</Link>
+                <Link to='/'>Lookbook</Link>
+                <Link to='/'>About</Link>
             </ul>
             <Link to='/cart' className={styles.cartBtn}>
                 <ShoppingBasket />

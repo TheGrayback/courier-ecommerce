@@ -17,14 +17,18 @@
 }
 
 .productName {
-    @apply mt-3 px-4 text-lg font-semibold tracking-wide text-gray-100;
+    @apply mt-3 px-4 text-lg font-semibold tracking-wide text-gray-100 line-clamp-2 wrap-anywhere;
 }
 
 .productPrice {
     @apply mt-1 px-4 text-gray-400;
 }
 
-.cardFooter {
+.footer {
+    @apply mt-auto
+}
+
+.footerBtns {
     @apply my-4 flex flex-row items-center justify-between px-4;
 }
 

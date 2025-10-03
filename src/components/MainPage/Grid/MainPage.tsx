@@ -1,6 +1,6 @@
 import GridItem from '../GridItem/GridItem';
-import styles from './ProductsGrid.module.css';
-import data from '../../utils/products.json';
+import styles from './MainPage.module.css'
+import data from '../../../utils/products.json';
 
 type Product = {
     id: number;
@@ -11,7 +11,7 @@ type Product = {
 
 const products: Product[] = data;
 
-function ProductsGrid() {
+function MainPage() {
     return (
         <section>
             {products.map((product) => (
@@ -21,4 +21,4 @@ function ProductsGrid() {
     );
 }
 
-export default ProductsGrid;
+export default MainPage;
