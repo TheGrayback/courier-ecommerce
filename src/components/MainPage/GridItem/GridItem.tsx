@@ -9,7 +9,7 @@ function GridItem({ product }: { product: Product }) {
 
     return (
         <div key={product.id} className={styles.productCard}>
-            <Link to={`/testPage/${product.id}`}>
+            <Link to={`/item/${product.id}`}>
                 <img
                     src={product.imageUrl}
                     alt={product.name}
