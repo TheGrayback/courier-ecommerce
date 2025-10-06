@@ -97,6 +97,10 @@
     color: #000;
 }
 
+.inCart {
+    @apply bg-white
+}
+
 .addToCartButton:hover {
     background-color: #00d67f;
 }

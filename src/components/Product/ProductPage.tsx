@@ -3,11 +3,12 @@ import data from '../../utils/products.json';
 import styles from './ProductPage.module.css';
 import { useParams } from 'react-router-dom';
 import type { Product } from '@/types/product.types';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group';
 import { Minus, Plus } from 'lucide-react';
 import { Input } from '../ui/input';
 import { useCartActions } from '@/hooks/useCartActions';
+import { useCart } from '@/contexts/CartContext';
 
 function ProductPage() {
     const { id } = useParams();
@@ -16,10 +17,18 @@ function ProductPage() {
 
     const [mainImage, setMainImage] = useState(product?.imageUrl);
 
-    const [productColor, setProductColor] = useState<string>(product?.color?.[0]?.[0] ?? 'DefaultColor');
-    const [productSize, setProductSize] = useState<string>(product?.color?.[0]?.[0] ?? 'DefaultSize');
+    const [productColor, setProductColor] = useState<string>(
+        product?.color?.[0]?.[0] ?? 'DefaultColor'
+    );
+    const [productSize, setProductSize] = useState<string>(
+        product?.size?.[0]?.[0] ?? 'DefaultSize'
+    );
 
     const { addItem } = useCartActions();
+    const { state } = useCart();
+
+    const productVariantId = `${product?.id}-${productColor}-${productSize}`;
+    const isInCart = state.items.some((item) => item.id === productVariantId);
 
     if (!product) return <h1>Product not found!</h1>;
     return (
@@ -102,17 +111,20 @@ function ProductPage() {
                     )}
 
                     <Button
-                        className={styles.addToCartButton}
-                        onClick={() =>
-                            addItem({
-                                ...product,
-                                id: `${product.id}-${productColor}-${productSize}`,
-                                name: `${productColor} ${product.name} ${productSize}`,
-                                quantity: 1,
-                            })
+                        className={`${styles.addToCartButton} ${isInCart ? styles.inCart : ''}`}
+                        onClick={
+                            isInCart
+                                ? undefined
+                                : () =>
+                                      addItem({
+                                          ...product,
+                                          id: `${product.id}-${productColor}-${productSize}`,
+                                          name: `${productColor} ${product.name} ${productSize}`,
+                                          quantity: 1,
+                                      })
                         }
                     >
-                        Add to Cart
+                        {isInCart ? 'Already in cart!' : 'Add to Cart'}
                     </Button>
                 </div>
             </div>
