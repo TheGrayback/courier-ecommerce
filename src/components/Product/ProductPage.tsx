@@ -7,18 +7,19 @@ import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group';
 import { Minus, Plus } from 'lucide-react';
 import { Input } from '../ui/input';
+import { useCartActions } from '@/hooks/useCartActions';
 
 function ProductPage() {
     const { id } = useParams();
     const products: Product[] = data as Product[];
-    const product = products.find((p) => p.id === Number(id));
+    const product = products.find((p) => p.id === String(id));
 
     const [mainImage, setMainImage] = useState(product?.imageUrl);
 
-    const [productColor, setProductColor] = useState<string | null>(null);
-    const [productSize, setProductSize] = useState<string | null>(null);
+    const [productColor, setProductColor] = useState<string>(product?.color?.[0]?.[0] ?? 'DefaultColor');
+    const [productSize, setProductSize] = useState<string>(product?.color?.[0]?.[0] ?? 'DefaultSize');
 
-    const [productQuantity, setProductQuantity] = useState<number>(0);
+    const { addItem } = useCartActions();
 
     if (!product) return <h1>Product not found!</h1>;
     return (
@@ -78,20 +79,20 @@ function ProductPage() {
                         </ToggleGroup>
                     </div>
 
-                    {product.sizes.length > 0 && (
+                    {product.size.length > 0 && (
                         <div className={styles.optionGroup}>
                             <p className={styles.optionLabel}>Size</p>
                             <ToggleGroup
                                 type='single'
                                 className={styles.sizesWrapper}
                             >
-                                {product.sizes.map((size, id) => (
+                                {product.size.map(([name, size], id) => (
                                     <ToggleGroupItem
                                         key={id}
                                         value={size}
-                                        title={size}
+                                        title={name}
                                         className={styles.sizeButton}
-                                        onClick={() => setProductSize(size)}
+                                        onClick={() => setProductSize(name)}
                                     >
                                         {size}
                                     </ToggleGroupItem>
@@ -100,11 +101,19 @@ function ProductPage() {
                         </div>
                     )}
 
-                    <Button className='flex-1'>Add to Cart</Button>
-
-                    <p className={styles.shortDescription}>
-                        {product.shortDescription}
-                    </p>
+                    <Button
+                        className={styles.addToCartButton}
+                        onClick={() =>
+                            addItem({
+                                ...product,
+                                id: `${product.id}-${productColor}-${productSize}`,
+                                name: `${productColor} ${product.name} ${productSize}`,
+                                quantity: 1,
+                            })
+                        }
+                    >
+                        Add to Cart
+                    </Button>
                 </div>
             </div>
 
