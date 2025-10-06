@@ -3,14 +3,8 @@ import data from '../../utils/products.json';
 import styles from './ProductPage.module.css';
 import { useParams } from 'react-router-dom';
 import type { Product } from '@/types/product.types';
-import { useEffect } from 'react';
 
 function ProductPage() {
-    
-    useEffect(() => {
-        window.scroll(0, 0);
-    }, []);
-
     const { id } = useParams();
     const products: Product[] = data as Product[];
     const product = products.find((p) => p.id === Number(id));
