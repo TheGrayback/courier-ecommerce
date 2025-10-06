@@ -4,6 +4,9 @@ import styles from './ProductPage.module.css';
 import { useParams } from 'react-router-dom';
 import type { Product } from '@/types/product.types';
 import { useState } from 'react';
+import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group';
+import { Minus, Plus } from 'lucide-react';
+import { Input } from '../ui/input';
 
 function ProductPage() {
     const { id } = useParams();
@@ -11,6 +14,11 @@ function ProductPage() {
     const product = products.find((p) => p.id === Number(id));
 
     const [mainImage, setMainImage] = useState(product?.imageUrl);
+
+    const [productColor, setProductColor] = useState<string | null>(null);
+    const [productSize, setProductSize] = useState<string | null>(null);
+
+    const [productQuantity, setProductQuantity] = useState<number>(0);
 
     if (!product) return <h1>Product not found!</h1>;
     return (
@@ -25,15 +33,21 @@ function ProductPage() {
                         />
                     </div>
                     <div className={styles.previewWrapper}>
+                        <div className={styles.previewItem}>
+                            <img
+                                src={product.imageUrl}
+                                alt={`preview 0`}
+                                className={styles.mainImage}
+                                onClick={() => setMainImage(product.imageUrl)}
+                            />
+                        </div>
                         {product.previewImage.map((image, id) => (
                             <div key={id} className={styles.previewItem}>
                                 <img
                                     src={image}
                                     alt={`preview ${id}`}
                                     className={styles.mainImage}
-                                    onClick={() =>
-                                        setMainImage(image)
-                                    }
+                                    onClick={() => setMainImage(image)}
                                 />
                             </div>
                         ))}
@@ -41,43 +55,52 @@ function ProductPage() {
                 </div>
 
                 <div className={styles.productInfo}>
-                    <h1 className={styles.productName}>{product.name}</h1>
+                    <h1 className={styles.productName}>
+                        {productColor} {product.name} {productSize}
+                    </h1>
                     <p className={styles.productPrice}>
                         ${product.price.toFixed(2)}
                     </p>
 
                     <div className={styles.optionGroup}>
                         <p className={styles.optionLabel}>Color</p>
-                        <div className={styles.colorsWrapper}>
-                            {product.color.map((color, id) => (
-                                <div
+                        <ToggleGroup type='single' className='gap-2'>
+                            {product.color.map(([color, hex], id) => (
+                                <ToggleGroupItem
                                     key={id}
+                                    value={color}
+                                    title={color}
                                     className={styles.colorItem}
-                                    style={{ backgroundColor: color[1] }}
+                                    style={{ backgroundColor: hex }}
+                                    onClick={() => setProductColor(color)}
                                 />
                             ))}
-                        </div>
+                        </ToggleGroup>
                     </div>
 
-                    <div className={styles.optionGroup}>
-                        <p className={styles.optionLabel}>Size</p>
-                        <div className={styles.sizesWrapper}>
-                            <button className={styles.sizeButton}>S</button>
-                            <button className={styles.sizeButton}>M</button>
-                            <button className={styles.sizeButton}>L</button>
-                            <button className={styles.sizeButton}>XL</button>
+                    {product.sizes.length > 0 && (
+                        <div className={styles.optionGroup}>
+                            <p className={styles.optionLabel}>Size</p>
+                            <ToggleGroup
+                                type='single'
+                                className={styles.sizesWrapper}
+                            >
+                                {product.sizes.map((size, id) => (
+                                    <ToggleGroupItem
+                                        key={id}
+                                        value={size}
+                                        title={size}
+                                        className={styles.sizeButton}
+                                        onClick={() => setProductSize(size)}
+                                    >
+                                        {size}
+                                    </ToggleGroupItem>
+                                ))}
+                            </ToggleGroup>
                         </div>
-                    </div>
+                    )}
 
-                    <div className={styles.cartControls}>
-                        <input
-                            type='number'
-                            value={1}
-                            readOnly
-                            className={styles.quantityInput}
-                        />
-                        <Button className='flex-1'>Add to Cart</Button>
-                    </div>
+                    <Button className='flex-1'>Add to Cart</Button>
 
                     <p className={styles.shortDescription}>
                         {product.shortDescription}
