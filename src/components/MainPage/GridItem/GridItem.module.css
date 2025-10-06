@@ -1,8 +1,10 @@
 @reference 'tailwindcss';
 
 .productCard {
-    @apply flex flex-col overflow-hidden rounded-xl bg-neutral-900 shadow-md border border-neutral-800;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    @apply flex flex-col overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 shadow-md;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .productCard:hover {
@@ -17,19 +19,19 @@
 }
 
 .productName {
-    @apply mt-3 px-4 text-lg font-semibold tracking-wide text-gray-100 line-clamp-2 wrap-anywhere;
+    @apply mt-3 line-clamp-2 px-4 text-lg font-semibold tracking-wide wrap-anywhere text-gray-100;
 }
 
 .productPrice {
-    @apply mt-1 px-4 text-gray-400;
+    @apply mt-1 px-4 text-xl font-bold text-[#00ff9d];
 }
 
 .footer {
-    @apply mt-auto
+    @apply mt-auto flex flex-row items-center justify-between;
 }
 
 .footerBtns {
-    @apply my-4 flex flex-row items-center justify-between px-4;
+    @apply my-4 flex flex-row items-center justify-end px-4;
 }
 
 .addToCartButton {
