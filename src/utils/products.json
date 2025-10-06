@@ -1,136 +1,146 @@
 [
-  {
-    "id": 1,
-    "name": "awd2507309gywoh80y2085y1039yf0whg083y4082t083y20ghh00f13hfuiebre09y80yawd2507309gywoh80y2085y1039yf0whg083y4082t083y20ghh00f13hfuiebre09y80y",
-    "price": 29.99,
-    "imageUrl": "/placeholder.jpg",
-    "color": [
-      ["Red", "#ff0303"],
-      ["Green", "#4aff03"],
-      ["Blue", "#031cff"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "fullDescription": "Ut malesuada odio vitae nunc mollis feugiat. Aliquam a viverra nulla. Etiam ornare dolor blandit nulla consequat efficitur. Morbi sit amet justo a leo viverra dapibus. Aenean dapibus sapien mi, quis iaculis velit ullamcorper vel. Sed hendrerit, augue sed pretium euismod, urna libero malesuada ipsum, quis aliquam nisl nunc at risus. Donec at tincidunt quam. Cras id ullamcorper tortor. Nulla sed sem a elit varius sodales. Nullam ac ante turpis. Ut aliquet pulvinar lorem, et rhoncus eros lobortis quis. Curabitur ullamcorper orci augue, id malesuada dolor varius at. Phasellus semper vel felis sit amet dictum. Nulla rutrum massa a tortor placerat venenatis. Quisque aliquam risus id dui hendrerit, nec suscipit eros feugiat.",
-    "sizes": ["S", "M", "L", "XL"]
-  },
-  {
-    "id": 2,
-    "name": "Lorem ipsum dolor",
-    "price": 35.5,
-    "imageUrl": "/placeholder2.jpg",
-    "color": [
-      ["Black", "#000000"],
-      ["White", "#ffffff"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit amet.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget justo vitae metus pharetra imperdiet vel ac tortor.",
-    "sizes": ["M", "L"]
-  },
-  {
-    "id": 3,
-    "name": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
-    "price": 42.99,
-    "imageUrl": "/placeholder3.jpg",
-    "color": [
-      ["Black", "#000000"],
-      ["Gray", "#808080"],
-      ["Red", "#dc2626"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit amet consectetur.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat mattis felis, a ultrices metus vulputate id. Integer vitae justo nec urna imperdiet ultricies non ut est.",
-    "sizes": []
-  },
-  {
-    "id": 4,
-    "name": "Lorem",
-    "price": 18.75,
-    "imageUrl": "/placeholder4.jpg",
-    "color": [
-      ["Gray", "#999999"],
-      ["Blue", "#1e40af"]
-    ],
-    "shortDescription": "Lorem ipsum.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "sizes": ["S", "M"]
-  },
-  {
-    "id": 5,
-    "name": "Lorem ipsum dolor sit amet consectetur",
-    "price": 75.0,
-    "imageUrl": "/placeholder.jpg",
-    "color": [
-      ["White", "#ffffff"],
-      ["Light Blue", "#60a5fa"],
-      ["Navy", "#1e3a8a"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit amet, consectetur.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra, ligula id vulputate lacinia, nisl est iaculis arcu, vitae malesuada elit ligula in leo. Nulla facilisi. Phasellus posuere magna ac nisl volutpat posuere.",
-    "sizes": ["M", "L", "XL"]
-  },
-  {
-    "id": 6,
-    "name": "Lorem ipsum dolor sit amet",
-    "price": 64.25,
-    "imageUrl": "/placeholder2.jpg",
-    "color": [
-      ["Black", "#000000"],
-      ["Olive", "#4d5d2c"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit amet.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat in elit fermentum sagittis. Aenean vel nibh eget sapien ultricies tristique. Sed tincidunt felis in sem laoreet varius.",
-    "sizes": []
-  },
-  {
-    "id": 7,
-    "name": "Lorem ipsum dolor sit",
-    "price": 120.99,
-    "imageUrl": "/placeholder3.jpg",
-    "color": [
-      ["Black", "#000000"],
-      ["Silver", "#c0c0c0"]
-    ],
-    "shortDescription": "Lorem ipsum dolor.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in eros purus. Sed nec turpis ultricies, tincidunt leo sed, fermentum ipsum. Vestibulum finibus viverra augue vel sollicitudin.",
-    "sizes": []
-  },
-  {
-    "id": 8,
-    "name": "Lorem ipsum dolor sit amet consectet",
-    "price": 52.0,
-    "imageUrl": "/placeholder4.jpg",
-    "color": [
-      ["Gray", "#9ca3af"],
-      ["Black", "#000000"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit amet.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus, risus et suscipit fringilla, nisl turpis dapibus elit, eget ullamcorper nunc mi eu est. Integer finibus ligula vitae arcu finibus, nec hendrerit mi vehicula.",
-    "sizes": ["S", "M", "L"]
-  },
-  {
-    "id": 9,
-    "name": "Lorem ipsum dolor",
-    "price": 28.5,
-    "imageUrl": "/placeholder.jpg",
-    "color": [
-      ["Black", "#000000"],
-      ["Brown", "#654321"]
-    ],
-    "shortDescription": "Lorem ipsum.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis facilisis diam, vitae varius leo ornare ut.",
-    "sizes": []
-  },
-  {
-    "id": 10,
-    "name": "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor",
-    "price": 36.99,
-    "imageUrl": "/placeholder2.jpg",
-    "color": [
-      ["Blue", "#2563eb"],
-      ["Black", "#000000"],
-      ["Red", "#dc2626"]
-    ],
-    "shortDescription": "Lorem ipsum dolor sit.",
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac ligula justo. Curabitur pharetra eros ut interdum varius. Duis maximus, leo sit amet fermentum elementum, magna justo eleifend sapien, nec fermentum turpis sapien in est.",
-    "sizes": ["S", "M", "L"]
-  }
+    {
+        "id": 1,
+        "name": "awd2507309gywoh80y2085y1039yf0whg083y4082t083y20ghh00f13hfuiebre09y80yawd2507309gywoh80y2085y1039yf0whg083y4082t083y20ghh00f13hfuiebre09y80y",
+        "price": 29.99,
+        "imageUrl": "/placeholder.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Red", "#ff0303"],
+            ["Green", "#4aff03"],
+            ["Blue", "#031cff"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "fullDescription": "Ut malesuada odio vitae nunc mollis feugiat. Aliquam a viverra nulla. Etiam ornare dolor blandit nulla consequat efficitur. Morbi sit amet justo a leo viverra dapibus. Aenean dapibus sapien mi, quis iaculis velit ullamcorper vel. Sed hendrerit, augue sed pretium euismod, urna libero malesuada ipsum, quis aliquam nisl nunc at risus. Donec at tincidunt quam. Cras id ullamcorper tortor. Nulla sed sem a elit varius sodales. Nullam ac ante turpis. Ut aliquet pulvinar lorem, et rhoncus eros lobortis quis. Curabitur ullamcorper orci augue, id malesuada dolor varius at. Phasellus semper vel felis sit amet dictum. Nulla rutrum massa a tortor placerat venenatis. Quisque aliquam risus id dui hendrerit, nec suscipit eros feugiat.",
+        "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+        "id": 2,
+        "name": "Lorem ipsum dolor",
+        "price": 35.5,
+        "imageUrl": "/placeholder2.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Black", "#000000"],
+            ["White", "#ffffff"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit amet.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget justo vitae metus pharetra imperdiet vel ac tortor.",
+        "sizes": ["M", "L"]
+    },
+    {
+        "id": 3,
+        "name": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+        "price": 42.99,
+        "imageUrl": "/placeholder3.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Black", "#000000"],
+            ["Gray", "#808080"],
+            ["Red", "#dc2626"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit amet consectetur.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat mattis felis, a ultrices metus vulputate id. Integer vitae justo nec urna imperdiet ultricies non ut est.",
+        "sizes": []
+    },
+    {
+        "id": 4,
+        "name": "Lorem",
+        "price": 18.75,
+        "imageUrl": "/placeholder4.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Gray", "#999999"],
+            ["Blue", "#1e40af"]
+        ],
+        "shortDescription": "Lorem ipsum.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "sizes": ["S", "M"]
+    },
+    {
+        "id": 5,
+        "name": "Lorem ipsum dolor sit amet consectetur",
+        "price": 75.0,
+        "imageUrl": "/placeholder.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["White", "#ffffff"],
+            ["Light Blue", "#60a5fa"],
+            ["Navy", "#1e3a8a"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra, ligula id vulputate lacinia, nisl est iaculis arcu, vitae malesuada elit ligula in leo. Nulla facilisi. Phasellus posuere magna ac nisl volutpat posuere.",
+        "sizes": ["M", "L", "XL"]
+    },
+    {
+        "id": 6,
+        "name": "Lorem ipsum dolor sit amet",
+        "price": 64.25,
+        "imageUrl": "/placeholder2.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Black", "#000000"],
+            ["Olive", "#4d5d2c"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit amet.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat in elit fermentum sagittis. Aenean vel nibh eget sapien ultricies tristique. Sed tincidunt felis in sem laoreet varius.",
+        "sizes": []
+    },
+    {
+        "id": 7,
+        "name": "Lorem ipsum dolor sit",
+        "price": 120.99,
+        "imageUrl": "/placeholder3.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Black", "#000000"],
+            ["Silver", "#c0c0c0"]
+        ],
+        "shortDescription": "Lorem ipsum dolor.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in eros purus. Sed nec turpis ultricies, tincidunt leo sed, fermentum ipsum. Vestibulum finibus viverra augue vel sollicitudin.",
+        "sizes": []
+    },
+    {
+        "id": 8,
+        "name": "Lorem ipsum dolor sit amet consectet",
+        "price": 52.0,
+        "imageUrl": "/placeholder4.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Gray", "#9ca3af"],
+            ["Black", "#000000"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit amet.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus, risus et suscipit fringilla, nisl turpis dapibus elit, eget ullamcorper nunc mi eu est. Integer finibus ligula vitae arcu finibus, nec hendrerit mi vehicula.",
+        "sizes": ["S", "M", "L"]
+    },
+    {
+        "id": 9,
+        "name": "Lorem ipsum dolor",
+        "price": 28.5,
+        "imageUrl": "/placeholder.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Black", "#000000"],
+            ["Brown", "#654321"]
+        ],
+        "shortDescription": "Lorem ipsum.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis facilisis diam, vitae varius leo ornare ut.",
+        "sizes": []
+    },
+    {
+        "id": 10,
+        "name": "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor",
+        "price": 36.99,
+        "imageUrl": "/placeholder2.jpg",
+        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "color": [
+            ["Blue", "#2563eb"],
+            ["Black", "#000000"],
+            ["Red", "#dc2626"]
+        ],
+        "shortDescription": "Lorem ipsum dolor sit.",
+        "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac ligula justo. Curabitur pharetra eros ut interdum varius. Duis maximus, leo sit amet fermentum elementum, magna justo eleifend sapien, nec fermentum turpis sapien in est.",
+        "sizes": ["S", "M", "L"]
+    }
 ]

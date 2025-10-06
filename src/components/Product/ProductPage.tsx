@@ -3,36 +3,40 @@ import data from '../../utils/products.json';
 import styles from './ProductPage.module.css';
 import { useParams } from 'react-router-dom';
 import type { Product } from '@/types/product.types';
+import { useState } from 'react';
 
 function ProductPage() {
     const { id } = useParams();
     const products: Product[] = data as Product[];
     const product = products.find((p) => p.id === Number(id));
 
+    const [mainImage, setMainImage] = useState(product?.imageUrl);
+
     if (!product) return <h1>Product not found!</h1>;
     return (
         <div className={styles.container}>
             <div className={styles.gridMain}>
-                <div>
+                <div className='fake-container'>
                     <div className={styles.mainImageWrapper}>
                         <img
-                            src={product.imageUrl}
+                            src={mainImage}
                             alt={product.name}
                             className={styles.mainImage}
                         />
                     </div>
                     <div className={styles.previewWrapper}>
-                        {Array(3)
-                            .fill(0)
-                            .map((_, idx) => (
-                                <div key={idx} className={styles.previewItem}>
-                                    <img
-                                        src={product.imageUrl}
-                                        alt={`preview ${idx}`}
-                                        className={styles.mainImage}
-                                    />
-                                </div>
-                            ))}
+                        {product.previewImage.map((image, id) => (
+                            <div key={id} className={styles.previewItem}>
+                                <img
+                                    src={image}
+                                    alt={`preview ${id}`}
+                                    className={styles.mainImage}
+                                    onClick={() =>
+                                        setMainImage(image)
+                                    }
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -87,7 +91,7 @@ function ProductPage() {
             </div>
 
             <section className={styles.relatedSection}>
-                <h2 className='mb-6 text-2xl font-bold'>Related Products</h2>
+                <h2 className='text-2xl font-bold md:mb-6'>Related Products</h2>
                 <div className={styles.relatedGrid}>
                     {data.slice(1, 5).map((p) => (
                         <div key={p.id} className={styles.relatedItem}>
