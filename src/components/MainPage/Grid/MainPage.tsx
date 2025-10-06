@@ -7,7 +7,7 @@ const products: Product[] = data as Product[];
 
 function MainPage() {
     return (
-        <section>
+        <section className={styles.productSection}>
             {products.map((product) => (
                 <GridItem key={product.id} product={product} />
             ))}
