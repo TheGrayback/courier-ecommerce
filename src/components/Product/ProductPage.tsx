@@ -9,6 +9,7 @@ import { Minus, Plus } from 'lucide-react';
 import { Input } from '../ui/input';
 import { useCartActions } from '@/hooks/useCartActions';
 import { useCart } from '@/contexts/CartContext';
+import RelatedItem from './RelatedItem/RelatedItem';
 
 function ProductPage() {
     const { id } = useParams();
@@ -137,14 +138,15 @@ function ProductPage() {
             <section className={styles.relatedSection}>
                 <h2 className='text-2xl font-bold md:mb-6'>Related Products</h2>
                 <div className={styles.relatedGrid}>
-                    {data.slice(1, 5).map((p) => (
-                        <div key={p.id} className={styles.relatedItem}>
-                            <img
-                                src={p.imageUrl}
-                                alt={p.name}
-                                className={styles.relatedImage}
-                            />
-                        </div>
+                    {data.slice(1, 5).map((item) => (
+                        <RelatedItem
+                            key={item.id}
+                            relatedItem={{
+                                ...item,
+                                color: item.color as [string, string][],
+                                size: item.size as [string, string][],
+                            }}
+                        />
                     ))}
                 </div>
             </section>

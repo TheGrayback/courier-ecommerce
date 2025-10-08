@@ -83,22 +83,14 @@
     @apply grid grid-cols-2 gap-6 md:grid-cols-4;
 }
 
-.relatedItem {
-    @apply aspect-square w-full overflow-hidden rounded bg-neutral-800;
-}
-
-.relatedImage {
-    @apply h-full w-full object-cover;
-}
-
 .addToCartButton {
-    @apply w-40 h-10 rounded px-4 py-2 font-semibold transition-colors;
+    @apply h-10 w-40 rounded px-4 py-2 font-semibold transition-colors;
     background-color: #00ff9d;
     color: #000;
 }
 
 .inCart {
-    @apply bg-white
+    @apply bg-white;
 }
 
 .addToCartButton:hover {
