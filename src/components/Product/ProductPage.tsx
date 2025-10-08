@@ -18,10 +18,10 @@ function ProductPage() {
     const [mainImage, setMainImage] = useState(product?.imageUrl);
 
     const [productColor, setProductColor] = useState<string>(
-        product?.color?.[0]?.[0] ?? 'DefaultColor'
+        product?.color?.[0]?.[0] ?? ' '
     );
     const [productSize, setProductSize] = useState<string>(
-        product?.size?.[0]?.[0] ?? 'DefaultSize'
+        product?.size?.[0]?.[0] ?? ' '
     );
 
     const { addItem } = useCartActions();
