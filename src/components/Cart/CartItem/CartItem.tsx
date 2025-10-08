@@ -18,7 +18,7 @@ function CartItem({
     };
 }) {
     const { updateQuantity, removeItem } = useCartActions();
-    const baseID = getItemBaseID(item.id)
+    const baseID = getItemBaseID(item.id);
 
     return (
         <li key={item.id} className={styles.item}>
@@ -28,7 +28,9 @@ function CartItem({
                     alt={item.name}
                     className={styles.itemImage}
                 />
-                <Link to={`/item/${baseID}`}><p className={styles.itemName}>{item.name}</p></Link>
+                <p className={styles.itemName}>
+                    <Link to={`/item/${baseID}`}>{item.name}</Link>
+                </p>
             </div>
             <div className={styles.utilityWrapper}>
                 <div className={styles.centralContainer}>
