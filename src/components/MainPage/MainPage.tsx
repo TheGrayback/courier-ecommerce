@@ -1,6 +1,6 @@
-import GridItem from '../GridItem/GridItem';
+import GridItem from './GridItem/GridItem';
 import styles from './MainPage.module.css'
-import data from '../../../utils/products.json';
+import data from '../../utils/products.json';
 import type { Product } from '@/types/product.types';
 
 const products: Product[] = data as Product[];

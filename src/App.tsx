@@ -1,4 +1,4 @@
-import MainPage from './components/MainPage/Grid/MainPage';
+import MainPage from './components/MainPage/MainPage';
 import styles from './App.module.css';
 import Navbar from './components/Navbar/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
