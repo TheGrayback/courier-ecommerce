@@ -3,6 +3,8 @@ import { Button } from '../../ui/button';
 import styles from './CartItem.module.css';
 import { Minus, Plus, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Link } from 'react-router-dom';
+import { getItemBaseID } from '@/utils/cart';
 
 function CartItem({
     item,
@@ -16,6 +18,7 @@ function CartItem({
     };
 }) {
     const { updateQuantity, removeItem } = useCartActions();
+    const baseID = getItemBaseID(item.id)
 
     return (
         <li key={item.id} className={styles.item}>
@@ -25,7 +28,7 @@ function CartItem({
                     alt={item.name}
                     className={styles.itemImage}
                 />
-                <p className={styles.itemName}>{item.name}</p>
+                <Link to={`/item/${baseID}`}><p className={styles.itemName}>{item.name}</p></Link>
             </div>
             <div className={styles.utilityWrapper}>
                 <div className={styles.centralContainer}>
