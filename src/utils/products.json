@@ -3,8 +3,12 @@
         "id": "1",
         "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor tortor et sem tristique, a vehicula lacus volutpat. Sed nec massa ornare, vestibulum erat dictum, aliquet velit. Donec commodo mi.",
         "price": 29.99,
-        "imageUrl": "/placeholder.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder.jpg",
+            "/placeholder2.jpg",
+            "/placeholder3.jpg",
+            "/placeholder4.jpg"
+        ],
         "color": [
             ["Red", "#ff0303"],
             ["Green", "#4aff03"],
@@ -23,8 +27,12 @@
         "id": "2",
         "name": "Lorem ipsum dolor",
         "price": 35.5,
-        "imageUrl": "/placeholder2.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder2.jpg",
+            "/placeholder.jpg",
+            "/placeholder3.jpg",
+            "/placeholder4.jpg"
+        ],
         "color": [
             ["Black", "#000000"],
             ["White", "#ffffff"]
@@ -40,8 +48,11 @@
         "id": "3",
         "name": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
         "price": 42.99,
-        "imageUrl": "/placeholder3.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder3.jpg",
+            "/placeholder2.jpg",
+            "/placeholder.jpg"
+        ],
         "color": [
             ["Black", "#000000"],
             ["Gray", "#808080"],
@@ -55,8 +66,11 @@
         "id": "4",
         "name": "Lorem",
         "price": 18.75,
-        "imageUrl": "/placeholder4.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder4.jpg",
+            "/placeholder.jpg",
+            "/placeholder2.jpg"
+        ],
         "color": [
             ["Gray", "#999999"],
             ["Blue", "#1e40af"]
@@ -72,7 +86,6 @@
         "id": "5",
         "name": "Lorem ipsum dolor sit amet consectetur",
         "price": 75.0,
-        "imageUrl": "/placeholder.jpg",
         "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
         "color": [
             ["White", "#ffffff"],
@@ -91,8 +104,11 @@
         "id": "6",
         "name": "Lorem ipsum dolor sit amet",
         "price": 64.25,
-        "imageUrl": "/placeholder2.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder2.jpg",
+            "/placeholder.jpg",
+            "/placeholder3.jpg"
+        ],
         "color": [
             ["Black", "#000000"],
             ["Olive", "#4d5d2c"]
@@ -105,8 +121,11 @@
         "id": "7",
         "name": "Lorem ipsum dolor sit",
         "price": 120.99,
-        "imageUrl": "/placeholder3.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder3.jpg",
+            "/placeholder.jpg",
+            "/placeholder2.jpg"
+        ],
         "color": [
             ["Black", "#000000"],
             ["Silver", "#c0c0c0"]
@@ -119,8 +138,11 @@
         "id": "8",
         "name": "Lorem ipsum dolor sit amet consectet",
         "price": 52.0,
-        "imageUrl": "/placeholder4.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": [
+            "/placeholder4.jpg",
+            "/placeholder.jpg",
+            "/placeholder2.jpg"
+        ],
         "color": [
             ["Gray", "#9ca3af"],
             ["Black", "#000000"]
@@ -137,7 +159,6 @@
         "id": "9",
         "name": "Lorem ipsum dolor",
         "price": 28.5,
-        "imageUrl": "/placeholder.jpg",
         "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
         "color": [
             ["Black", "#000000"],
@@ -151,8 +172,7 @@
         "id": "10",
         "name": "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor",
         "price": 36.99,
-        "imageUrl": "/placeholder2.jpg",
-        "previewImage": ["/placeholder.jpg", "/placeholder2.jpg"],
+        "previewImage": ["/placeholder2.jpg", "/placeholder.jpg"],
         "color": [
             ["Blue", "#2563eb"],
             ["Black", "#000000"],
