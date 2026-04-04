@@ -9,7 +9,7 @@ function RelatedItem({ relatedItem }: RelatedItemProps) {
     return (
         <div className={styles.relatedItem}>
             <img
-                src={relatedItem.imageUrl}
+                src={relatedItem.previewImage[0]}
                 alt={relatedItem.name}
                 className={styles.relatedImage}
             />

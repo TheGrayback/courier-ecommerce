@@ -10,13 +10,21 @@ import { Input } from '../ui/input';
 import { useCartActions } from '@/hooks/useCartActions';
 import { useCart } from '@/contexts/CartContext';
 import RelatedItem from './RelatedItem/RelatedItem';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from '../ui/carousel';
 
 function ProductPage() {
     const { id } = useParams();
+
     const products: Product[] = data as Product[];
     const product = products.find((p) => p.id === String(id));
 
-    const [mainImage, setMainImage] = useState(product?.imageUrl);
+    const [mainImage, setMainImage] = useState(product?.previewImage[0]);
 
     const [productColor, setProductColor] = useState<string>(
         product?.color?.[0]?.[0] ?? ' '
@@ -36,33 +44,36 @@ function ProductPage() {
         <div className={styles.container}>
             <div className={styles.gridMain}>
                 <div className='fake-container'>
-                    <div className={styles.mainImageWrapper}>
-                        <img
-                            src={mainImage}
-                            alt={product.name}
-                            className={styles.mainImage}
-                        />
-                    </div>
-                    <div className={styles.previewWrapper}>
-                        <div className={styles.previewItem}>
-                            <img
-                                src={product.imageUrl}
-                                alt={`preview 0`}
-                                className={styles.mainImage}
-                                onClick={() => setMainImage(product.imageUrl)}
-                            />
+                    <Carousel>
+                        <CarouselContent>
+                            {product.previewImage.map((image, id) => (
+                                <CarouselItem key={id}>
+                                    <div className={styles.mainImageWrapper}>
+                                        <img
+                                            src={image}
+                                            alt={`preview ${id}`}
+                                            className={styles.mainImage}
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+
+                        <div className={styles.previewWrapper}>
+                            {product.previewImage.map((image, id) => (
+                                <div key={id} className={styles.previewItem}>
+                                    <img
+                                        src={image}
+                                        alt={`preview ${id}`}
+                                        className={styles.mainImage}
+                                        onClick={() => setMainImage(image)}
+                                    />
+                                </div>
+                            ))}
                         </div>
-                        {product.previewImage.map((image, id) => (
-                            <div key={id} className={styles.previewItem}>
-                                <img
-                                    src={image}
-                                    alt={`preview ${id}`}
-                                    className={styles.mainImage}
-                                    onClick={() => setMainImage(image)}
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    </Carousel>
                 </div>
 
                 <div className={styles.productInfo}>
@@ -119,6 +130,8 @@ function ProductPage() {
                                 : () =>
                                       addItem({
                                           ...product,
+                                          previewImage:
+                                              product.previewImage[0] || '',
                                           id: `${product.id}-${productColor}-${productSize}`,
                                           name: `${productColor} ${product.name} ${productSize}`,
                                           quantity: 1,

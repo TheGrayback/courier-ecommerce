@@ -11,7 +11,7 @@ function GridItem({ product }: { product: Product }) {
         <div key={product.id} className={styles.productCard}>
             <Link to={`/item/${product.id}`}>
                 <img
-                    src={product.imageUrl}
+                    src={product.previewImage[0]}
                     alt={product.name}
                     className={styles.productImage}
                 ></img>
