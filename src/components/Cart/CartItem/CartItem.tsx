@@ -5,17 +5,12 @@ import { Minus, Plus, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
 import { getItemBaseID } from '@/utils/cart';
+import type { CartItem as CartItemType } from '@/types/cart.types';
 
 function CartItem({
     item,
 }: {
-    item: {
-        id: string;
-        name: string;
-        price: number;
-        quantity: number;
-        imageUrl: string;
-    };
+    item: CartItemType;
 }) {
     const { updateQuantity, removeItem } = useCartActions();
     const baseID = getItemBaseID(item.id);
@@ -24,7 +19,7 @@ function CartItem({
         <li key={item.id} className={styles.item}>
             <div className={styles.leftContainer}>
                 <img
-                    src={item.imageUrl}
+                    src={item.previewImage}
                     alt={item.name}
                     className={styles.itemImage}
                 />

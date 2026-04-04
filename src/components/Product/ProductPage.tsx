@@ -3,20 +3,11 @@ import data from '../../utils/products.json';
 import styles from './ProductPage.module.css';
 import { useParams } from 'react-router-dom';
 import type { Product } from '@/types/product.types';
-import { useContext, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group';
-import { Minus, Plus } from 'lucide-react';
-import { Input } from '../ui/input';
 import { useCartActions } from '@/hooks/useCartActions';
 import { useCart } from '@/contexts/CartContext';
 import RelatedItem from './RelatedItem/RelatedItem';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from '../ui/carousel';
 
 function ProductPage() {
     const { id } = useParams();
@@ -24,61 +15,63 @@ function ProductPage() {
     const products: Product[] = data as Product[];
     const product = products.find((p) => p.id === String(id));
 
-    const [mainImage, setMainImage] = useState(product?.previewImage[0]);
+    const [mainImage, setMainImage] = useState(product?.previewImage[0] ?? '');
 
-    const [productColor, setProductColor] = useState<string>(
-        product?.color?.[0]?.[0] ?? ' '
+    const [selectedColor, setSelectedColor] = useState<string>(
+        product?.color?.[0]?.[0] ?? ''
     );
-    const [productSize, setProductSize] = useState<string>(
-        product?.size?.[0]?.[0] ?? ' '
+    const [selectedSize, setSelectedSize] = useState<string>(
+        product?.size?.[0]?.[1] ?? ''
     );
 
     const { addItem } = useCartActions();
     const { state } = useCart();
 
-    const productVariantId = `${product?.id}-${productColor}-${productSize}`;
-    const isInCart = state.items.some((item) => item.id === productVariantId);
+    useEffect(() => {
+        if (!product) return;
+        setMainImage(product.previewImage[0] ?? '');
+        setSelectedColor(product.color[0]?.[0] ?? '');
+        setSelectedSize(product.size[0]?.[1] ?? '');
+    }, [product]);
 
     if (!product) return <h1>Product not found!</h1>;
+
+    const productVariantId = [product.id, selectedColor, selectedSize]
+        .filter(Boolean)
+        .join('-');
+    const cartItemName = [selectedColor, product.name, selectedSize]
+        .filter(Boolean)
+        .join(' ');
+    const isInCart = state.items.some((item) => item.id === productVariantId);
+
     return (
         <div className={styles.container}>
             <div className={styles.gridMain}>
                 <div className='fake-container'>
-                    <Carousel>
-                        <CarouselContent>
-                            {product.previewImage.map((image, id) => (
-                                <CarouselItem key={id}>
-                                    <div className={styles.mainImageWrapper}>
-                                        <img
-                                            src={image}
-                                            alt={`preview ${id}`}
-                                            className={styles.mainImage}
-                                        />
-                                    </div>
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
-
-                        <div className={styles.previewWrapper}>
-                            {product.previewImage.map((image, id) => (
-                                <div key={id} className={styles.previewItem}>
-                                    <img
-                                        src={image}
-                                        alt={`preview ${id}`}
-                                        className={styles.mainImage}
-                                        onClick={() => setMainImage(image)}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </Carousel>
+                    <div className={styles.mainImageWrapper}>
+                        <img
+                            src={mainImage}
+                            alt={product.name}
+                            className={styles.mainImage}
+                        />
+                    </div>
+                    <div className={styles.previewWrapper}>
+                        {product.previewImage.map((image, imageIndex) => (
+                            <div key={imageIndex} className={styles.previewItem}>
+                                <img
+                                    src={image}
+                                    alt={`${product.name} preview ${imageIndex + 1}`}
+                                    className={styles.mainImage}
+                                    onClick={() => setMainImage(image)}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className={styles.productInfo}>
                     <h1 className={styles.productName}>
-                        {productColor} {product.name} {productSize}
+                        {cartItemName}
                     </h1>
                     <p className={styles.productPrice}>
                         ${product.price.toFixed(2)}
@@ -86,7 +79,14 @@ function ProductPage() {
 
                     <div className={styles.optionGroup}>
                         <p className={styles.optionLabel}>Color</p>
-                        <ToggleGroup type='single' className='gap-2'>
+                        <ToggleGroup
+                            type='single'
+                            className='gap-2'
+                            value={selectedColor}
+                            onValueChange={(value) => {
+                                if (value) setSelectedColor(value);
+                            }}
+                        >
                             {product.color.map(([color, hex], id) => (
                                 <ToggleGroupItem
                                     key={id}
@@ -94,7 +94,6 @@ function ProductPage() {
                                     title={color}
                                     className={styles.colorItem}
                                     style={{ backgroundColor: hex }}
-                                    onClick={() => setProductColor(color)}
                                 />
                             ))}
                         </ToggleGroup>
@@ -106,16 +105,19 @@ function ProductPage() {
                             <ToggleGroup
                                 type='single'
                                 className={styles.sizesWrapper}
+                                value={selectedSize}
+                                onValueChange={(value) => {
+                                    if (value) setSelectedSize(value);
+                                }}
                             >
-                                {product.size.map(([name, size], id) => (
+                                {product.size.map(([name, sizeCode], id) => (
                                     <ToggleGroupItem
                                         key={id}
-                                        value={size}
+                                        value={sizeCode}
                                         title={name}
                                         className={styles.sizeButton}
-                                        onClick={() => setProductSize(name)}
                                     >
-                                        {size}
+                                        {sizeCode}
                                     </ToggleGroupItem>
                                 ))}
                             </ToggleGroup>
@@ -132,8 +134,8 @@ function ProductPage() {
                                           ...product,
                                           previewImage:
                                               product.previewImage[0] || '',
-                                          id: `${product.id}-${productColor}-${productSize}`,
-                                          name: `${productColor} ${product.name} ${productSize}`,
+                                          id: productVariantId,
+                                          name: cartItemName,
                                           quantity: 1,
                                       })
                         }
