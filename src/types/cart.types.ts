@@ -1,25 +1,43 @@
-export type CartItemType = {
-    id: string;
+type CartItemId = string;
+
+export type CartItem = {
+    id: CartItemId;
     name: string;
     price: number;
     quantity: number;
     previewImage: string;
 };
 
-export type CartStateType = {
-    items: CartItemType[];
+export type CartState = {
+    items: CartItem[];
 };
 
-export type CartActionType =
-    | { type: 'ADD_ITEM'; payload: CartItemType }
-    | { type: 'REMOVE_ITEM'; payload: { id: string } }
-    | { type: 'CLEAR_CART' }
-    | {
-          type: 'UPDATE_QUANTITY';
-          payload: { id: string; delta: number };
-      };
+type AddItemAction = {
+    type: 'ADD_ITEM';
+    payload: CartItem;
+};
 
-export type CartContextType = {
-    state: CartStateType;
-    dispatch: React.Dispatch<CartActionType>;
+type RemoveItemAction = {
+    type: 'REMOVE_ITEM';
+    payload: { id: string };
+};
+
+type ClearCartAction = {
+    type: 'CLEAR_CART';
+};
+
+type UpdateQuantityAction = {
+    type: 'UPDATE_QUANTITY';
+    payload: { id: string; delta: number };
+};
+
+export type CartAction =
+    | AddItemAction
+    | RemoveItemAction
+    | ClearCartAction
+    | UpdateQuantityAction;
+
+export type CartContext = {
+    state: CartState;
+    dispatch: React.Dispatch<CartAction>;
 };
