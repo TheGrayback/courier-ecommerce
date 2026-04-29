@@ -1,20 +1,21 @@
 import { cartReducer } from '@/reducers/cartReducer';
-import type { CartAction, CartState } from '@/types/cart.types';
+import type {
+    CartContextType,
+    CartStateType,
+} from '@/types/cart.types';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
-const CartContext = createContext<
-    { state: CartState; dispatch: React.Dispatch<CartAction> } | undefined
->(undefined);
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const CART_STORAGE_KEY = 'cart_v1';
 
-const initialState: CartState = {
+const initialState: CartStateType = {
     items: [],
 };
 
-function isValidCartState(value: unknown): value is CartState {
+function isValidCartState(value: unknown): value is CartStateType {
     if (!value || typeof value !== 'object') return false;
-    const items = (value as CartState).items;
+    const items = (value as CartStateType).items;
     if (!Array.isArray(items)) return false;
 
     return items.every((item) => {
@@ -29,7 +30,7 @@ function isValidCartState(value: unknown): value is CartState {
     });
 }
 
-function getInitialCartState(): CartState {
+function getInitialCartState(): CartStateType {
     if (typeof window === 'undefined') return initialState;
 
     try {
