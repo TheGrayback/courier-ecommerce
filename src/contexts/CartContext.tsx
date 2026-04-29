@@ -1,36 +1,27 @@
 import { cartReducer } from '@/reducers/cartReducer';
-import type {
-    CartContextType,
-    CartStateType,
-} from '@/types/cart.types';
+import type { CartContext, CartState } from '@/types/cart.types';
+import { isCartItem } from '@/utils/cart';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<CartContext | undefined>(undefined);
 
 const CART_STORAGE_KEY = 'cart_v1';
 
-const initialState: CartStateType = {
+const initialState: CartState = {
     items: [],
 };
 
-function isValidCartState(value: unknown): value is CartStateType {
+function isValidCartState(value: unknown): value is CartState {
     if (!value || typeof value !== 'object') return false;
-    const items = (value as CartStateType).items;
+    const items = (value as CartState).items;
     if (!Array.isArray(items)) return false;
 
     return items.every((item) => {
-        return (
-            item &&
-            typeof item.id === 'string' &&
-            typeof item.name === 'string' &&
-            typeof item.price === 'number' &&
-            typeof item.quantity === 'number' &&
-            typeof item.previewImage === 'string'
-        );
+        return isCartItem(item);
     });
 }
 
-function getInitialCartState(): CartStateType {
+function getInitialCartState(): CartState {
     if (typeof window === 'undefined') return initialState;
 
     try {
