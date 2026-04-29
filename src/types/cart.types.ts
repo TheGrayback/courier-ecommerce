@@ -1,17 +1,24 @@
-type CartItemId = string;
+import * as z from 'zod';
 
-export type CartItem = {
-    id: CartItemId;
-    name: string;
-    price: number;
-    quantity: number;
-    previewImage: string;
-};
+// CartItem Schema
+export const CartItemSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    price: z.number(),
+    quantity: z.number(),
+    previewImage: z.string(),
+});
 
-export type CartState = {
-    items: CartItem[];
-};
+export type CartItem = z.infer<typeof CartItemSchema>;
 
+// CartState Schema
+export const CartStateSchema = z.object({
+    items: z.array(CartItemSchema),
+});
+
+export type CartState = z.infer<typeof CartStateSchema>;
+
+// Reducer Actions Schema
 type AddItemAction = {
     type: 'ADD_ITEM';
     payload: CartItem;
@@ -37,6 +44,7 @@ export type CartAction =
     | ClearCartAction
     | UpdateQuantityAction;
 
+// Cart Context type
 export type CartContext = {
     state: CartState;
     dispatch: React.Dispatch<CartAction>;

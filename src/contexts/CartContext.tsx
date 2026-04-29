@@ -1,6 +1,9 @@
 import { cartReducer } from '@/reducers/cartReducer';
-import type { CartContext, CartState } from '@/types/cart.types';
-import { isCartItem } from '@/utils/cart';
+import {
+    type CartContext,
+    type CartState,
+} from '@/types/cart.types';
+import { parseCartState } from '@/utils/cart';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
 const CartContext = createContext<CartContext | undefined>(undefined);
@@ -11,16 +14,6 @@ const initialState: CartState = {
     items: [],
 };
 
-function isValidCartState(value: unknown): value is CartState {
-    if (!value || typeof value !== 'object') return false;
-    const items = (value as CartState).items;
-    if (!Array.isArray(items)) return false;
-
-    return items.every((item) => {
-        return isCartItem(item);
-    });
-}
-
 function getInitialCartState(): CartState {
     if (typeof window === 'undefined') return initialState;
 
@@ -28,8 +21,9 @@ function getInitialCartState(): CartState {
         const rawState = window.localStorage.getItem(CART_STORAGE_KEY);
         if (!rawState) return initialState;
 
-        const parsedState = JSON.parse(rawState) as unknown;
-        if (isValidCartState(parsedState)) return parsedState;
+        const parsedState = JSON.parse(rawState);
+        const result = parseCartState(parsedState);
+        if (result.success) return result.data;
     } catch {
         // ignore malformed localStorage data and fallback to initial state
     }
