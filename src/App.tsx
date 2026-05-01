@@ -1,10 +1,11 @@
-import MainPage from './components/MainPage/MainPage';
+import MainPage from './features/home/components/MainPage/MainPage';
 import styles from './App.module.css';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './shared/layout/navbar/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import CartPage from './components/Cart/CartPage/CartPage';
-import ProductPage from './components/Product/ProductPage';
-import ScrollToTop from './components/Global/ScrollToTop';
+import CartPage from '@/features/cart/components/CartPage/CartPage';
+import ProductPage from './features/product/components/ProductPage/ProductPage';
+import ScrollToTop from './shared/lib/ScrollToTop';
+import { Toaster } from '@/shared/ui/sonner';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path='/item/:id' element={<ProductPage />} />
                     </Routes>
                 </main>
+                <Toaster position='bottom-right' />
             </div>
         </Router>
     );
